@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><rect width="300" height="300" fill="#9C7B5E"/><text x="150" y="160" font-family="Georgia,serif" font-size="64" fill="#FBF8F3" text-anchor="middle">ST</text></svg>
+</template>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; }
+  * { box-sizing: border-box; }
+  ::selection { background: #DCCAB6; }
+  @keyframes fadePageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @keyframes fadePageOut { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(-6px); } }
+  .page-exiting { animation: fadePageOut 0.3s ease both !important; pointer-events: none; }
+</style>
+<script>
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || a.target === '_blank') return;
+    const root = document.getElementById('page-root');
+    if (!root) return;
+    e.preventDefault();
+    root.classList.add('page-exiting');
+    setTimeout(function() { window.location.href = href; }, 280);
+  });
+</script>
+</helmet>
+
+<div id="page-root" style="font-family: 'Jost', sans-serif; color: #33302A; background: #F4EFE7; -webkit-font-smoothing: antialiased; min-height: 100vh; animation: fadePageIn .5s ease both;">
+
+  <!-- NAV -->
+  <nav style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; padding: clamp(12px,2vw,18px) clamp(20px,5vw,48px); background: rgba(244,239,231,0.82); backdrop-filter: blur(10px); border-bottom: 1px solid #E3DCCF;">
+    <a href="index.html" style="text-decoration: none; color: #33302A; line-height: 1; display: flex; align-items: center; gap: 12px;">
+      <img src="assets/solterra-icon.png" alt="" style="height: 38px; width: 38px; object-fit: contain;">
+      <div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; letter-spacing: 0.5px;">SolTerra</div>
+        <div style="font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #8A8175; margin-top: 2px;">Wellness &amp; Spa</div>
+      </div>
+    </a>
+    <a href="index.html" style="text-decoration: none; color: #5C564D; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; border-bottom: 1px solid #B7AD9C; padding-bottom: 3px;">← Back to site</a>
+  </nav>
+
+  <!-- STEP 1 — CHOOSE GUEST TYPE -->
+  <sc-if value="{{ choosing }}" hint-placeholder-val="{{ true }}">
+    <section style="max-width: 980px; margin: 0 auto; padding: clamp(48px,8vw,84px) clamp(20px,5vw,48px) clamp(56px,8vw,96px); text-align: center;">
+      <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 18px;">Reserve</div>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(34px,6vw,54px); line-height: 1.06; margin: 0 0 16px;">How would you like to book?</h1>
+      <p style="font-size: 16px; color: #8A8175; font-weight: 300; margin: 0 0 56px;">Choose the option that fits you — we'll tailor the details from there.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; text-align: left;">
+        <!-- Hotel guest card -->
+        <button onClick="{{ chooseHotel }}" style="cursor: pointer; text-align: left; background: #FBF8F3; border: 1px solid #E3DCCF; padding: 0; border-radius: 1px; overflow: hidden; transition: border-color .2s;" style-hover="border-color: #9C7B5E;">
+          <div style="position: relative; height: 168px; overflow: hidden;">
+            <img src="assets/hotel-guest-card.jpg" alt="Resort villa & pool" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 30px 30px 34px;">
+            <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 12px;">Staying with us</div>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; line-height: 1.1;">Resident Guest</div>
+            <p style="font-size: 14px; color: #6B6258; font-weight: 300; line-height: 1.6; margin: 14px 0 22px;">For guests staying at Ashoka Tree Resort.</p><div><br></div><p></p>
+            <span style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #9C7B5E; border-bottom: 1px solid #C2A98C; padding-bottom: 3px;">Continue →</span>
+          </div>
+        </button>
+
+        <!-- Outside guest card -->
+        <button onClick="{{ chooseOutside }}" style="cursor: pointer; text-align: left; background: #FBF8F3; border: 1px solid #E3DCCF; padding: 0; border-radius: 1px; overflow: hidden; transition: border-color .2s;" style-hover="border-color: #9C7B5E;">
+          <div style="position: relative; height: 168px; overflow: hidden;">
+            <img src="assets/outside-guest-card.jpg" alt="Spa entrance & garden" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 30px 30px 34px;">
+            <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 12px;">Visiting for the day</div>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; line-height: 1.1;">Non-Resident Guest</div>
+            <p style="font-size: 14px; color: #6B6258; font-weight: 300; line-height: 1.6; margin: 14px 0 22px;">For visitors and locals not staying at the resort.&nbsp;</p><div><br></div><p></p>
+            <span style="font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #9C7B5E; border-bottom: 1px solid #C2A98C; padding-bottom: 3px;">Continue →</span>
+          </div>
+        </button>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- STEP 2 — FORM -->
+  <sc-if value="{{ formStep }}" hint-placeholder-val="{{ false }}">
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); min-height: calc(100vh - 75px);">
+
+      <!-- Left rail -->
+      <div style="position: relative; background: repeating-linear-gradient(135deg, #E4DBCB 0 16px, #DDD3C0 16px 32px); padding: clamp(40px,7vw,64px) clamp(24px,6vw,56px); display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <button onClick="{{ back }}" style="background: none; border: none; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #7A7165; padding: 0 0 28px;">← Change</button>
+          <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 18px;">{{ modeLabel }}</div>
+          <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(30px,5vw,46px); line-height: 1.06; margin: 0 0 20px;">{{ modeHeading }}</h1>
+          <p style="font-size: 15px; line-height: 1.7; color: #6B6258; font-weight: 300; max-width: 340px; margin: 0;">{{ modeBlurb }}</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 44px;">
+          <div>
+            <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 6px;">Hours</div>
+            <div style="font-size: 15px; font-weight: 300; color: #5C564D;">Open daily · 10:00 AM – 9:00 PM<br>Last booking 8:00 PM</div>
+          </div>
+          <div>
+            <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 6px;">Reservations</div>
+            <div style="font-size: 15px; font-weight: 300; color: #5C564D;">+62 813 3911 0206</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div style="background: #FBF8F3; padding: clamp(40px,7vw,64px) clamp(24px,6vw,64px); display: flex; align-items: center;">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="width: 100%; max-width: 560px; margin: 0 auto; text-align: center; border: 1px solid #DCD1BD; background: #F4EFE7; padding: 64px 44px;">
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 38px; margin-bottom: 14px;">Thank you.</div>
+            <p style="font-size: 15px; color: #6B6258; font-weight: 300; line-height: 1.7; margin: 0 0 32px;">Your request has reached us. We'll be in touch shortly to confirm your treatment.</p>
+            <a href="index.html" style="text-decoration: none; color: #9C7B5E; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid #C2A98C; padding-bottom: 3px;">Return to site</a>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onSubmit }}" style="width: 100%; max-width: 560px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">First name</label>
+              <input type="text" required="" style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Last name</label>
+              <input type="text" required="" style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
+            </div>
+
+            <!-- Hotel-guest-only fields -->
+            <sc-if value="{{ isHotel }}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Room number</label>
+                <input type="text" required="" placeholder="e.g. 214" style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Charge to room?</label>
+                <select style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
+                  <option>Yes, add to my room bill</option>
+                  <option>No, I'll pay at the spa</option>
+                </select>
+              </div>
+            </sc-if>
+
+            <!-- Outside-guest-only fields -->
+            <sc-if value="{{ isOutside }}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Email</label>
+                <input type="email" required="" style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Phone</label>
+                <input type="tel" required="" style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
+              </div>
+            </sc-if>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Treatment</label>
+              <select style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
+                <option>Balinese Massage</option>
+                <option>Deep Tissue Massage</option>
+                <option>Aromatherapy Massage</option>
+                <option>Thai Massage</option>
+                <option>Couple's Massage</option>
+                <option>Body Scrub / Lulur</option>
+                <option>Facial</option>
+                <option>Foot Reflexology</option>
+                <option>Package / Retreat</option>
+              </select>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Number of guests</label>
+              <select style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
+                <option>1 guest</option>
+                <option>2 guests (couple)</option>
+                <option>3+ guests</option>
+              </select>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Preferred date</label>
+              <input type="date" style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Preferred time</label>
+              <select style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
+                <option>Morning (9–12)</option>
+                <option>Afternoon (12–5)</option>
+                <option>Evening (5–8)</option>
+              </select>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px; grid-column: 1 / -1;">
+              <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Notes / requests <span style="text-transform: none; letter-spacing: 0; color: #B0A693;">(optional)</span></label>
+              <textarea rows="2" style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none; resize: none;"></textarea>
+            </div>
+            <button type="submit" style="grid-column: 1 / -1; margin-top: 16px; background: #9C7B5E; color: #FBF8F3; border: none; font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; padding: 17px; cursor: pointer; border-radius: 1px;">Request Booking</button>
+          </form>
+        </sc-if>
+      </div>
+    </section>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { mode: null, sent: false }; // mode: null | 'hotel' | 'outside'
+
+  componentDidMount() {
+    this._navHandler = (e) => {
+      const a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      const url = a.getAttribute('href');
+      if (!url || url.startsWith('#') || url.startsWith('mailto:') || url.startsWith('tel:') || a.target === '_blank') return;
+      e.preventDefault();
+      const root = document.getElementById('page-root');
+      if (root) { root.style.transition = 'opacity .3s ease, transform .3s ease'; root.style.opacity = '0'; root.style.transform = 'translateY(-8px)'; }
+      setTimeout(() => { window.location.href = url; }, 290);
+    };
+    document.addEventListener('click', this._navHandler);
+  }
+  componentWillUnmount() {
+    if (this._navHandler) document.removeEventListener('click', this._navHandler);
+  }
+
+  renderVals() {
+    const mode = this.state.mode;
+    const copy = {
+      hotel: {
+        label: 'Hotel Guest',
+        heading: 'Charge it to your stay.',
+        blurb: "Tell us your room and treatment — we'll fit it around your time at Ashoka Tree Resort.",
+      },
+      outside: {
+        label: 'Outside Guest',
+        heading: 'Book your moment of calm.',
+        blurb: "Reserve your treatment and arrive at your booked time. We'll confirm by email within the day.",
+      },
+    };
+    const c = copy[mode] || copy.outside;
+
+    return {
+      choosing: mode === null,
+      formStep: mode !== null,
+      isHotel: mode === 'hotel',
+      isOutside: mode === 'outside',
+      modeLabel: c.label,
+      modeHeading: c.heading,
+      modeBlurb: c.blurb,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      chooseHotel: () => { this.setState({ mode: 'hotel' }); window.scrollTo(0, 0); },
+      chooseOutside: () => { this.setState({ mode: 'outside' }); window.scrollTo(0, 0); },
+      back: () => this.setState({ mode: null, sent: false }),
+      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); window.scrollTo(0, 0); },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><rect width="300" height="300" fill="#9C7B5E"></rect><text x="150" y="160" font-family="Georgia,serif" font-size="64" fill="#FBF8F3" text-anchor="middle">ST</text></svg>
+</template>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  * { box-sizing: border-box; }
+  section { scroll-margin-top: 76px; }
+  ::selection { background: #DCCAB6; }
+  @keyframes fadePageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @keyframes fadePageOut { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(-6px); } }
+  .page-exiting { animation: fadePageOut 0.3s ease both !important; pointer-events: none; }
+</style>
+<script>
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || a.target === '_blank') return;
+    const root = document.getElementById('page-root');
+    if (!root) return;
+    e.preventDefault();
+    root.classList.add('page-exiting');
+    setTimeout(function() { window.location.href = href; }, 280);
+  });
+</script>
+</helmet>
+
+<div id="page-root" style="font-family: 'Jost', sans-serif; color: #33302A; background: #F4EFE7; -webkit-font-smoothing: antialiased; overflow-x: hidden; animation: fadePageIn .5s ease both;">
+
+  <!-- NAV -->
+  <nav style="position: sticky; top: 0; z-index: 50; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding: clamp(12px,2vw,18px) clamp(20px,5vw,48px); background: rgba(244,239,231,0.82); backdrop-filter: blur(10px); border-bottom: 1px solid #E3DCCF;">
+    <a href="#top" style="text-decoration: none; color: #33302A; line-height: 1; display: flex; align-items: center; gap: 12px;">
+      <img src="assets/solterra-icon.png" alt="" style="height: 38px; width: 38px; object-fit: contain;">
+      <div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; letter-spacing: 0.5px;">SolTerra</div>
+        <div style="font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #8A8175; margin-top: 2px;">Wellness &amp; Spa</div>
+      </div>
+    </a>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: clamp(14px,3vw,34px);">
+      <a href="#treatments" style="text-decoration: none; color: #5C564D; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;">Treatments</a>
+      <a href="#spaces" style="text-decoration: none; color: #5C564D; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;">Spaces</a>
+      <a href="#packages" style="text-decoration: none; color: #5C564D; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;">Packages</a>
+      <a href="#visit" style="text-decoration: none; color: #5C564D; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;">Visit</a>
+      <a href="solterra-booking.html" style="text-decoration: none; background: #9C7B5E; color: #FBF8F3; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 11px 22px; border-radius: 1px;">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="top" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); min-height: 88vh;">
+    <div style="display: flex; flex-direction: column; justify-content: center; padding: clamp(48px,8vw,72px) clamp(24px,6vw,64px); {{ heroTextStyle }}">
+      <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 26px;">At Ashoka Tree Resort · Ubud, Bali</div>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(40px,6vw,68px); line-height: 1.04; margin: 0 0 28px; letter-spacing: -0.5px;">Where the<br>jungle exhales.</h1>
+      <p style="font-size: 16px; line-height: 1.7; color: #6B6258; max-width: 420px; margin: 0 0 40px; font-weight: 300;">Traditional Balinese healing, reimagined as quiet ritual. Open to resort guests and visitors alike.</p>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <a href="solterra-booking.html" style="text-decoration: none; background: #9C7B5E; color: #FBF8F3; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; padding: 16px 34px; border-radius: 1px;">Reserve a Treatment</a>
+        <a href="#treatments" style="text-decoration: none; color: #5C564D; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; border-bottom: 1px solid #B7AD9C; padding-bottom: 3px;">View Menu</a>
+      </div>
+    </div>
+    <div style="position: relative; min-height: 420px; overflow: hidden;">
+      <img src="assets/hero-pool-sunset.jpg" alt="SolTerra Spa pool at sunset" style="{{ heroImgStyle }}">
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); align-items: center; gap: 0; background: #FBF8F3;">
+    <div ref="{{ philosophyRef }}" style="position: relative; min-height: 520px; overflow: hidden;">
+      <img src="assets/philosophy-detail.jpg" alt="Couple treatment room detail" style="{{ philosophyImgStyle }}">
+    </div>
+    <div style="padding: clamp(48px,8vw,88px) clamp(24px,6vw,72px); {{ philosophyTextStyle }}">
+      <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 24px;">Our Philosophy</div>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(30px,4vw,40px); line-height: 1.15; margin: 0 0 24px;">Slow hands, ancient rituals, nothing rushed.</h2>
+      <p style="font-size: 16px; line-height: 1.8; color: #6B6258; font-weight: 300; max-width: 460px; margin: 0;">Every treatment begins with breath and ends in stillness. We use natural Balinese botanicals and time-honoured technique — a sanctuary equally for those staying with us and those simply passing through Ubud.</p>
+    </div>
+  </section>
+
+  <!-- TREATMENTS -->
+  <section id="treatments" style="padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px);">
+    <div style="text-align: center; margin-bottom: 52px;">
+      <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 18px;">The Menu</div>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(32px,5vw,46px); margin: 0 0 14px;">Treatments &amp; Rituals</h2>
+      <p style="font-size: 14px; color: #8A8175; font-weight: 300; margin: 0;">Six categories of care. Tap any to see the full list &amp; prices.</p>
+    </div>
+    <div ref="{{ menuRef }}" style="max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px;">
+      <sc-for list="{{ categories }}" as="cat" hint-placeholder-count="6">
+        <div style="border: 1px solid #E3DCCF; background: #FBF8F3; {{ cat.revealStyle }}">
+          <button onClick="{{ cat.toggle }}" style="width: 100%; cursor: pointer; background: none; border: none; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 28px; text-align: left; font-family: 'Jost', sans-serif;">
+            <div>
+              <div style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; color: #33302A;">{{ cat.title }}</div>
+              <div style="font-size: 13px; color: #8A8175; font-weight: 300; margin-top: 4px;">{{ cat.blurb }} · {{ cat.count }}</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 18px; white-space: nowrap;">
+              <div style="text-align: right;">
+                <div style="font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #B0A693;">From</div>
+                <div style="font-family: 'Cormorant Garamond', serif; font-size: 19px; color: #9C7B5E;">{{ cat.from }}</div>
+              </div>
+              <div style="font-size: 22px; color: #9C7B5E; width: 24px; text-align: center; font-weight: 300;">{{ cat.chevron }}</div>
+            </div>
+          </button>
+          <sc-if value="{{ cat.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding: 0 28px 22px; border-top: 1px solid #E3DCCF;">
+              <sc-for list="{{ cat.items }}" as="t" hint-placeholder-count="4">
+                <div style="display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid #EFE9DD;">
+                  <div style="flex: 1; font-size: 14.5px; color: #4A453D;">{{ t.name }}</div>
+                  <div style="font-size: 12px; letter-spacing: 0.5px; color: #8A8175; white-space: nowrap;">{{ t.duration }}</div>
+                  <div style="font-family: 'Cormorant Garamond', serif; font-size: 17px; color: #33302A; white-space: nowrap; min-width: 92px; text-align: right;">{{ t.price }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+      <p style="text-align: center; font-size: 12px; color: #B0A693; font-weight: 300; margin-top: 12px; letter-spacing: 0.5px;">Prices in Indonesian Rupiah, subject to confirmation. Available for hotel guests and outside visitors.</p>
+    </div>
+  </section>
+
+  <!-- SPACES -->
+  <section id="spaces" style="padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px); background: #EFE8DC;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(32px,5vw,64px); align-items: center; max-width: 1180px; margin: 0 auto;">
+      <div>
+        <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 22px;">Our Spaces</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(30px,4.5vw,42px); line-height: 1.12; margin: 0 0 36px;">Four rooms,<br>each its own retreat.</h2>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <sc-for list="{{ rooms }}" as="r" hint-placeholder-count="3">
+            <div style="display: flex; gap: 20px; padding: 20px 0; border-top: 1px solid #DDD3C0;">
+              <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #9C7B5E; min-width: 28px;">{{ r.num }}</div>
+              <div>
+                <div style="font-size: 15px; font-weight: 500; letter-spacing: 0.3px;">{{ r.title }}</div>
+                <div style="font-size: 13.5px; color: #7A7165; font-weight: 300; margin-top: 4px; line-height: 1.5;">{{ r.note }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div ref="{{ spacesRef }}" style="position: relative; min-height: 640px; overflow: hidden; {{ spacesRevealStyle }}">
+        <div style="position: absolute; inset: 0; opacity: {{ spaceOpacity0 }}; transition: opacity 1s ease;">
+          <img src="assets/spaces-treatment-room.jpg" alt="Twin Pavilion treatment room" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="position: absolute; inset: 0; opacity: {{ spaceOpacity1 }}; transition: opacity 1s ease;">
+          <img src="assets/gallery-bathtub.jpg" alt="Reflexology Room" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <button onClick="{{ prevSlide }}" aria-label="Previous photo" style="{{ prevArrowStyle }}">←</button>
+        <button onClick="{{ nextSlide }}" aria-label="Next photo" style="{{ nextArrowStyle }}">→</button>
+        <div style="position: absolute; bottom: 18px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px;">
+          <sc-for list="{{ spaceDots }}" as="d" hint-placeholder-count="2">
+            <button onClick="{{ d.onSelect }}" aria-label="Go to photo" style="{{ d.style }}"></button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages" style="padding: clamp(56px,8vw,96px) clamp(20px,5vw,64px);">
+    <div style="text-align: center; margin-bottom: 52px;">
+      <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 18px;">Spend the Day</div>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(32px,5vw,46px); margin: 0;">Packages &amp; Retreats</h2>
+    </div>
+    <div ref="{{ packagesRef }}" style="max-width: 640px; margin: 0 auto; text-align: center; position: relative; {{ packagesRevealStyle }}">
+      <button onClick="{{ prevPackage }}" aria-label="Previous package" style="{{ prevPackageArrowStyle }}">←</button>
+      <button onClick="{{ nextPackage }}" aria-label="Next package" style="{{ nextPackageArrowStyle }}">→</button>
+      <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 16px;">{{ activePackage.tag }}</div>
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(26px,4vw,38px); font-weight: 500; line-height: 1.15; margin-bottom: 14px;">{{ activePackage.name }}</div>
+      <div style="font-size: 13px; letter-spacing: 1px; color: #8A8175; margin-bottom: 22px;">{{ activePackage.duration }}</div>
+      <p style="font-size: 15px; color: #6B6258; font-weight: 300; line-height: 1.7; max-width: 480px; margin: 0 auto 24px;">{{ activePackage.desc }}</p>
+      <sc-if value="{{ activePackageHasPoster }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-bottom: 28px;">
+          <span onClick="{{ onViewPoster }}" style="font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #9C7B5E; border-bottom: 1px solid #C2A98C; padding-bottom: 3px; cursor: pointer;">Click to see detail →</span>
+        </div>
+      </sc-if>
+      <div style="display: flex; align-items: baseline; justify-content: center; gap: 10px; padding-top: 22px; border-top: 1px solid #E3DCCF; max-width: 380px; margin: 0 auto 32px;">
+        <span style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">From</span>
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 28px;">{{ activePackage.price }}</span>
+      </div>
+      <div style="display: flex; justify-content: center; gap: 8px;">
+        <sc-for list="{{ packageDots }}" as="d" hint-placeholder-count="6">
+          <button onClick="{{ d.onSelect }}" aria-label="Go to package" style="{{ d.style }}"></button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR PRODUCTS -->
+  <section id="products" ref="{{ productsRef }}" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); background: #FBF8F3;">
+    <div style="position: relative; min-height: 480px; overflow: hidden;">
+      <img src="assets/gallery-oils.jpg" alt="Essential oil botanicals" style="{{ productsImgStyle }}">
+    </div>
+    <div style="padding: clamp(48px,8vw,88px) clamp(24px,6vw,72px); display: flex; flex-direction: column; justify-content: center; {{ productsTextStyle }}">
+      <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #9C7B5E; margin-bottom: 24px;">Our Products</div>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(30px,4vw,40px); line-height: 1.15; margin: 0 0 24px;">Pure botanicals, bottled.</h2>
+      <p style="font-size: 16px; line-height: 1.8; color: #6B6258; font-weight: 300; max-width: 440px; margin: 0;">Jasmine, frangipani, lavender, sandalwood, lemongrass and green tea — the same essential oils used in your treatment, available to take home.</p>
+    </div>
+  </section>
+
+  <div style="height: 72px; background: #FBF8F3;"></div>
+
+  <!-- BOOKING CTA -->
+  <section id="book" style="position: relative; padding: clamp(72px,12vw,140px) clamp(24px,6vw,64px); text-align: center; overflow: hidden;">
+    <img src="assets/gallery-reception-menu.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+    <div style="position: absolute; inset: 0; background: rgba(30,27,22,0.55);"></div>
+    <div style="position: relative; max-width: 640px; margin: 0 auto;">
+      <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #D8BC96; margin-bottom: 18px;">Reserve</div>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(34px,6vw,50px); line-height: 1.08; margin: 0 0 18px; color: #FBF8F3;">Ready when you are.</h2>
+      <p style="font-size: 16px; color: #EDE6DA; font-weight: 300; line-height: 1.7; margin: 0 0 38px;">Resort guests and outside visitors welcome. Reserve your treatment and we'll confirm by email within the day.</p>
+      <a href="solterra-booking.html" style="text-decoration: none; display: inline-block; background: #9C7B5E; color: #FBF8F3; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; padding: 17px 42px; border-radius: 1px;">Book a Treatment</a>
+    </div>
+  </section>
+
+  <!-- VISIT / LOCATION -->
+  <section id="visit" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); background: #2E2A24; color: #EDE6DA;">
+    <div style="padding: clamp(48px,8vw,88px) clamp(24px,6vw,64px);">
+      <div style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #C2A98C; margin-bottom: 24px;">Visit Us</div>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(30px,4.5vw,42px); line-height: 1.12; margin: 0 0 36px; color: #FBF8F3;">SolTerra Wellness &amp; Spa</h2>
+      <div style="display: flex; flex-direction: column; gap: 26px; max-width: 400px;">
+        <div>
+          <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #A89878; margin-bottom: 7px;">Location</div>
+          <div style="font-size: 16px; font-weight: 300; line-height: 1.6; color: #DDD4C6;">Ashoka Tree Resort, Ubud<br>Bali, Indonesia</div>
+        </div>
+        <div>
+          <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #A89878; margin-bottom: 7px;">Hours</div>
+          <div style="font-size: 16px; font-weight: 300; line-height: 1.6; color: #DDD4C6;">Open daily · 10:00 AM – 9:00 PM<br>Last booking 8:00 PM</div>
+        </div>
+        <div>
+          <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #A89878; margin-bottom: 7px;">Reservations</div>
+          <div style="font-size: 16px; font-weight: 300; line-height: 1.6; color: #DDD4C6;">+62 813 3911 0206<br></div>
+        </div>
+        <div style="font-size: 12px; color: #8E8270; font-weight: 300; line-height: 1.6; margin-top: 4px;">Managed by Solise Ubud Resources Hospitality Management.</div>
+      </div>
+    </div>
+    <div style="position: relative; min-height: 480px; overflow: hidden;">
+      <iframe src="https://www.google.com/maps?q=Ashoka+Tree+Resort+Ubud,+Bali&amp;output=embed" title="Ashoka Tree Resort location map" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(0.15) contrast(1.05);" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- POSTER LIGHTBOX -->
+  <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLightbox }}" style="{{ lightboxStyle }}">
+      <button onClick="{{ closeLightbox }}" aria-label="Close" style="position: absolute; top: 20px; right: 24px; background: none; border: none; color: #FBF8F3; font-size: 32px; line-height: 1; cursor: pointer; font-weight: 300;">×</button>
+      <sc-if value="{{ isPosterEarth }}" hint-placeholder-val="{{ false }}">
+        <img src="assets/earth-ritual-poster.jpeg" alt="SolTerra Earth Ritual poster" style="max-width: 92vw; max-height: 92vh; width: auto; height: auto; object-fit: contain; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+      </sc-if>
+      <sc-if value="{{ isPosterVolcanic }}" hint-placeholder-val="{{ false }}">
+        <img src="assets/volcanic-earth-poster.jpeg" alt="Volcanic Earth Rejuvenation poster" style="max-width: 92vw; max-height: 92vh; width: auto; height: auto; object-fit: contain; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+      </sc-if>
+      <sc-if value="{{ isPosterBalinese }}" hint-placeholder-val="{{ false }}">
+        <img src="assets/balinese-bliss-poster.jpeg" alt="Balinese Bliss poster" style="max-width: 92vw; max-height: 92vh; width: auto; height: auto; object-fit: contain; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+      </sc-if>
+      <sc-if value="{{ isPosterRomantic }}" hint-placeholder-val="{{ false }}">
+        <img src="assets/romantic-escape-poster.jpeg" alt="Romantic Escapes for Two poster" style="max-width: 92vw; max-height: 92vh; width: auto; height: auto; object-fit: contain; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+      </sc-if>
+      <sc-if value="{{ isPosterHoneymoon }}" hint-placeholder-val="{{ false }}">
+        <img src="assets/honeymoon-ritual-poster.jpg" alt="Honeymoon Ritual poster" style="max-width: 92vw; max-height: 92vh; width: auto; height: auto; object-fit: contain; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+      </sc-if>
+      <sc-if value="{{ isPosterRoyal }}" hint-placeholder-val="{{ false }}">
+        <img src="assets/royal-ubud-romance-poster.jpg" alt="Royal Ubud Romance poster" style="max-width: 92vw; max-height: 92vh; width: auto; height: auto; object-fit: contain; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <!-- FOOTER -->
+  <footer style="background: #F4EFE7; padding: clamp(28px,5vw,44px) clamp(24px,6vw,64px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid #E3DCCF;">
+    <div>
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600;">SolTerra Wellness &amp; Spa</div>
+      <div style="font-size: 12px; color: #8A8175; font-weight: 300; margin-top: 3px;">Ashoka Tree Resort · Ubud, Bali</div>
+    </div>
+    <div style="font-size: 11px; color: #A89B86; font-weight: 300; letter-spacing: 0.5px;">© 2026 Solise Ubud Resources Hospitality Management</div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { openCategory: null, spaceSlide: 0, spaceHover: false, packageSlide: 0, packageHover: false, lightbox: null, heroShown: false, philoShown: false, menuShown: false, spacesShown: false, packagesShown: false, productsShown: false };
+  philosophyRef = React.createRef();
+  menuRef = React.createRef();
+  spacesRef = React.createRef();
+  packagesRef = React.createRef();
+  productsRef = React.createRef();
+
+  componentDidMount() {
+    setTimeout(() => this.setState({ heroShown: true }), 150);
+    const reveal = (ref, key) => {
+      const obs = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          this.setState({ [key]: true });
+          obs.disconnect();
+        }
+      }, { threshold: 0.25 });
+      if (ref.current) obs.observe(ref.current);
+      return obs;
+    };
+    this._observers = [
+      reveal(this.philosophyRef, 'philoShown'),
+      reveal(this.menuRef, 'menuShown'),
+      reveal(this.spacesRef, 'spacesShown'),
+      reveal(this.packagesRef, 'packagesShown'),
+      reveal(this.productsRef, 'productsShown'),
+    ];
+
+    this._navHandler = (e) => {
+      const a = e.target.closest && e.target.closest('a[href$=".dc.html"]');
+      if (!a) return;
+      const url = a.getAttribute('href');
+      if (!url) return;
+      e.preventDefault();
+      const root = document.getElementById('page-root');
+      if (root) { root.style.transition = 'opacity .3s ease, transform .3s ease'; root.style.opacity = '0'; root.style.transform = 'translateY(-8px)'; }
+      setTimeout(() => { window.location.href = url; }, 290);
+    };
+    document.addEventListener('click', this._navHandler);
+  }
+  componentWillUnmount() {
+    if (this._navHandler) document.removeEventListener('click', this._navHandler);
+    if (this._observers) this._observers.forEach(o => o.disconnect());
+  }
+
+  renderVals() {
+    const rp = n => 'Rp ' + n.toLocaleString('en-US');
+    const slideT = 'transform 1.6s cubic-bezier(0.22,1,0.36,1)';
+    const heroTextStyle = `transform: translateY(${this.state.heroShown ? '0' : '-60px'}); opacity: ${this.state.heroShown ? 1 : 0}; transition: ${slideT}, opacity 1.6s ease;`;
+    const heroImgStyle = `position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: translateY(${this.state.heroShown ? '0' : '100%'}); transition: ${slideT};`;
+    const philosophyTextStyle = `transform: translateY(${this.state.philoShown ? '0' : '60px'}); opacity: ${this.state.philoShown ? 1 : 0}; transition: ${slideT}, opacity 1.6s ease;`;
+    const philosophyImgStyle = `position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: translateY(${this.state.philoShown ? '0' : '-100%'}); transition: ${slideT};`;
+    const prodSlideT = 'transform 1.6s cubic-bezier(0.22,1,0.36,1)';
+    const productsImgStyle = `position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: translateY(${this.state.productsShown ? '0' : '-100%'}); transition: ${prodSlideT};`;
+    const productsTextStyle = `transform: translateY(${this.state.productsShown ? '0' : '100%'}); opacity: ${this.state.productsShown ? 1 : 0}; transition: ${prodSlideT}, opacity 1.6s ease;`;
+
+    const categories = [
+      { key: 'massage', title: 'Massage', blurb: 'Balinese, Thai, hot stone & more', items: [
+        { name: 'Balinese Massage', duration: '60 Mins', price: rp(350000) },
+        { name: 'Balinese Massage', duration: '90 Mins', price: rp(500000) },
+        { name: 'Aromatherapy Massage', duration: '60 Mins', price: rp(380000) },
+        { name: 'Aromatherapy Massage', duration: '90 Mins', price: rp(530000) },
+        { name: 'Sport Massage', duration: '60 Mins', price: rp(350000) },
+        { name: 'Sport Massage', duration: '90 Mins', price: rp(500000) },
+        { name: 'Thai Massage', duration: '60 Mins', price: rp(350000) },
+        { name: 'Thai Massage', duration: '90 Mins', price: rp(500000) },
+        { name: 'Lomi-Lomi Massage', duration: '60 Mins', price: rp(350000) },
+        { name: 'Lomi-Lomi Massage', duration: '90 Mins', price: rp(500000) },
+        { name: 'Deep Tissue Massage', duration: '60 Mins', price: rp(350000) },
+        { name: 'Deep Tissue Massage', duration: '90 Mins', price: rp(500000) },
+        { name: 'Hot Stone Massage', duration: '60 Mins', price: rp(380000) },
+        { name: 'Hot Stone Massage', duration: '90 Mins', price: rp(530000) },
+        { name: 'Herbal Compress Massage', duration: '60 Mins', price: rp(400000) },
+        { name: 'Herbal Compress Massage', duration: '90 Mins', price: rp(550000) },
+        { name: 'Shoulder and Back Massage', duration: '30 Mins', price: rp(200000) },
+        { name: 'Head, Shoulder, and Back Massage', duration: '60 Mins', price: rp(350000) },
+        { name: 'Foot Reflexology', duration: '60 Mins', price: rp(350000) },
+        { name: 'Foot Reflexology', duration: '90 Mins', price: rp(500000) },
+      ]},
+      { key: 'scrubs', title: 'Body Scrubs', blurb: 'Coffee, coconut, fruit & chocolate', items: [
+        { name: 'Coffee Scrubs', duration: '45 Mins', price: rp(250000) },
+        { name: 'Coconut Scrubs', duration: '45 Mins', price: rp(250000) },
+        { name: 'Fruits Scrubs', duration: '45 Mins', price: rp(280000) },
+        { name: 'Chocolate Scrubs', duration: '45 Mins', price: rp(300000) },
+      ]},
+      { key: 'facials', title: 'Facials', blurb: 'Mask treatments & detox facials', items: [
+        { name: 'Facial Treatment with Mask(s)', duration: '45 Mins', price: rp(300000) },
+        { name: 'Detox Facial + Mask Treatment', duration: '60 Mins', price: rp(450000) },
+      ]},
+      { key: 'beauty', title: 'Beauty Care', blurb: 'Hair, manicure & pedicure', items: [
+        { name: 'Hair Treatment', duration: '45 Mins', price: rp(300000) },
+        { name: 'Manicure', duration: '45 Mins', price: rp(180000) },
+        { name: 'Pedicure', duration: '45 Mins', price: rp(220000) },
+        { name: 'Mani + Pedi', duration: '90 Mins', price: rp(350000) },
+      ]},
+      { key: 'waxing', title: 'Waxing', blurb: 'Yoghurt, chocolate & milk wax', items: [
+        { name: 'Yoghurt Wax', duration: '45 Mins', price: rp(280000) },
+        { name: 'Chocolate Wax', duration: '45 Mins', price: rp(280000) },
+        { name: 'Milk Wax', duration: '45 Mins', price: rp(280000) },
+      ]},
+      { key: 'bath', title: 'Bath Ritual', blurb: 'Flower & herbal soaking baths', items: [
+        { name: 'Flower Bath', duration: '30 Mins', price: rp(250000) },
+        { name: 'Herbal Bath', duration: '30 Mins', price: rp(250000) },
+      ]},
+    ];
+
+    const catList = categories.map((c, idx) => {
+      const open = this.state.openCategory === c.key;
+      const revealStyle = `opacity: ${this.state.menuShown ? 1 : 0}; transform: translateY(${this.state.menuShown ? '0' : '14px'}); transition: opacity .3s ease ${(idx * 0.3).toFixed(1)}s, transform .3s ease ${(idx * 0.3).toFixed(1)}s;`;
+      const prices = c.items.map(i => parseInt(i.price.replace(/\D/g, ''), 10));
+      const from = rp(Math.min(...prices));
+      return {
+        key: c.key, title: c.title, blurb: c.blurb, from, revealStyle,
+        count: c.items.length + (c.items.length === 1 ? ' treatment' : ' treatments'),
+        open, items: c.items,
+        toggle: () => this.setState({ openCategory: open ? null : c.key }),
+        chevron: open ? '\u2212' : '+',
+      };
+    });
+
+    const rooms = [
+      { num: '01', title: 'Twin Pavilion A', note: 'Individual or couples massage' },
+      { num: '02', title: 'Twin Pavilion B', note: 'Individual or couples massage' },
+      { num: '03', title: 'Thai & Floor Room', note: 'Low-bed Thai massage & stretching' },
+      { num: '04', title: 'Reflexology Room', note: 'Dedicated foot & reflexology space' },
+    ];
+
+    const spacesRevealStyle = `opacity: ${this.state.spacesShown ? 1 : 0}; transition: opacity 1s ease;`;
+    const spaceSlideDefs = ['assets/spaces-treatment-room.jpg', 'assets/gallery-bathtub.jpg'];
+    const spaceSlide = this.state.spaceSlide;
+    const spaceOpacity0 = spaceSlide === 0 ? 1 : 0;
+    const spaceOpacity1 = spaceSlide === 1 ? 1 : 0;
+    const spaceDots = spaceSlideDefs.map((_, i) => ({
+      onSelect: () => this.setState({ spaceSlide: i }),
+      style: `width:8px; height:8px; border-radius:50%; border:none; padding:0; cursor:pointer; background:${i === spaceSlide ? '#9C7B5E' : 'rgba(251,248,243,0.85)'};`,
+    }));
+    const prevSlide = () => this.setState({ spaceSlide: (spaceSlide - 1 + spaceSlideDefs.length) % spaceSlideDefs.length });
+    const nextSlide = () => this.setState({ spaceSlide: (spaceSlide + 1) % spaceSlideDefs.length });
+    const arrowStyle = `position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: none; background: rgba(251,248,243,0.85); color: #33302A; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center;`;
+    const onSpaceEnter = () => this.setState({ spaceHover: true });
+    const onSpaceLeave = () => this.setState({ spaceHover: false });
+
+    const packagesRevealStyle = `opacity: ${this.state.packagesShown ? 1 : 0}; transition: opacity 1.5s ease;`;
+    const packages = [
+      { name: 'SolTerra Earth Ritual', duration: '115 Mins', desc: 'A journey of renewal rooted in nature — foot ritual, herbal compress massage, herbal bath & tea ceremony.', price: rp(650000), ph: '[ flat-lay — herbal compress, linen ]', poster: 'assets/earth-ritual-poster.jpeg' },
+      { name: 'Volcanic Earth Rejuvenation', duration: '160 Mins', desc: 'Signature — foot ritual, hot stone massage, coffee scrub & flower bath.', price: rp(850000), ph: '[ hot stones & coffee scrub ]', poster: 'assets/volcanic-earth-poster.jpeg' },
+      { name: 'Balinese Bliss', duration: '160 Mins', desc: 'A journey of bliss, an experience to remember — foot ritual, Balinese massage, coconut scrub, herbal bath & tea.', price: rp(800000), ph: '[ tropical bath & tea ceremony ]', poster: 'assets/balinese-bliss-poster.jpeg' },
+    ];
+
+    const couplePackages = [
+      { name: 'Romantic Escapes for Two', duration: '130 Mins', desc: 'A beautiful escape, a deeper connection — foot ritual, aromatherapy massage, flower bath, tea & dessert.', price: rp(1250000), ph: '[ couple — twin beds, flowers ]', poster: 'assets/romantic-escape-poster.jpeg' },
+      { name: 'Honeymoon Ritual', duration: '180 Mins', desc: 'Celebrate love, cherish moments — welcome drink, couple massage, body scrub, facial, flower bath & treats for two.', price: rp(2600000), ph: '[ couple — candles, cocktails ]', poster: 'assets/honeymoon-ritual-poster.jpg' },
+      { name: 'Royal Ubud Romance', duration: '240 Mins', desc: 'A luxury wellness journey for two — couple massage, body scrub, facial, flower bath & candlelight dining.', price: rp(3500000), ph: '[ couple — private dining setup ]', poster: 'assets/royal-ubud-romance-poster.jpg' },
+    ];
+
+    const packageBgs = [
+      'repeating-linear-gradient(135deg,#EAE3D5 0 16px,#E2D9C8 16px 32px)',
+      'repeating-linear-gradient(135deg,#E4DBCB 0 16px,#DDD3C0 16px 32px)',
+      'repeating-linear-gradient(135deg,#E7DECE 0 16px,#DFD5C3 16px 32px)',
+    ];
+    const allPackages = [
+      ...packages.map(p => ({ ...p, tag: 'Package' })),
+      ...couplePackages.map(p => ({ ...p, tag: 'Couple Package' })),
+    ];
+    const packageSlide = this.state.packageSlide;
+    const activePackage = allPackages[packageSlide];
+    const packageDots = allPackages.map((_, i) => ({
+      onSelect: () => this.setState({ packageSlide: i }),
+      style: `width:8px; height:8px; border-radius:50%; border:none; padding:0; cursor:pointer; background:${i === packageSlide ? '#9C7B5E' : '#D8CDBA'};`,
+    }));
+    const prevPackage = () => this.setState({ packageSlide: (packageSlide - 1 + allPackages.length) % allPackages.length });
+    const nextPackage = () => this.setState({ packageSlide: (packageSlide + 1) % allPackages.length });
+    const pkgArrowStyle = `position: absolute; top: 8px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #E3DCCF; background: #FBF8F3; color: #33302A; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center;`;
+    const onViewPoster = () => this.setState({ lightbox: activePackage.poster, lightboxY: window.scrollY });
+
+    return {
+      heroImgStyle, philosophyImgStyle, heroTextStyle, philosophyTextStyle, philosophyRef: this.philosophyRef,
+      menuRef: this.menuRef, spacesRef: this.spacesRef, packagesRef: this.packagesRef, productsRef: this.productsRef,
+      spacesRevealStyle, packagesRevealStyle, productsImgStyle, productsTextStyle,
+      categories: catList,
+      rooms,
+      lightboxOpen: !!this.state.lightbox,
+      isPosterEarth: this.state.lightbox === 'assets/earth-ritual-poster.jpeg',
+      isPosterVolcanic: this.state.lightbox === 'assets/volcanic-earth-poster.jpeg',
+      isPosterBalinese: this.state.lightbox === 'assets/balinese-bliss-poster.jpeg',
+      isPosterRomantic: this.state.lightbox === 'assets/romantic-escape-poster.jpeg',
+      isPosterHoneymoon: this.state.lightbox === 'assets/honeymoon-ritual-poster.jpg',
+      isPosterRoyal: this.state.lightbox === 'assets/royal-ubud-romance-poster.jpg',
+      lightboxStyle: `position: absolute; inset: 0; top: ${this.state.lightboxY || 0}px; height: 100vh; z-index: 100; background: rgba(30,27,22,0.92); display: flex; align-items: center; justify-content: center; padding: 24px; cursor: zoom-out;`,
+      closeLightbox: () => this.setState({ lightbox: null }),
+      spaceOpacity0, spaceOpacity1, spaceDots, prevSlide, nextSlide,
+      prevArrowStyle: `${arrowStyle} left: 16px;`,
+      nextArrowStyle: `${arrowStyle} right: 16px;`,
+      activePackage, packageDots, prevPackage, nextPackage,
+      activePackageHasPoster: !!activePackage.poster,
+      onViewPoster,
+      prevPackageArrowStyle: `${pkgArrowStyle} left: -8px;`,
+      nextPackageArrowStyle: `${pkgArrowStyle} right: -8px;`,
+    };
+  }
+}
+</script>
+</body>
+</html>
