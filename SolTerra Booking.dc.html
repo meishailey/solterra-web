@@ -180,7 +180,7 @@
             </div>
             <div style="display: flex; flex-direction: column; gap: 8px;">
               <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Preferred date</label>
-              <input type="date" style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
+              <input type="date" required="" style="border: none; border-bottom: 1px solid #CFC4B0; background: transparent; padding: 10px 2px; font-family: 'Jost', sans-serif; font-size: 15px; color: #33302A; outline: none;">
             </div>
             <div style="display: flex; flex-direction: column; gap: 8px;">
               <label style="font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8A8175;">Preferred time</label>
@@ -253,7 +253,11 @@ class Component extends DCLogic {
       chooseHotel: () => { this.setState({ mode: 'hotel' }); window.scrollTo(0, 0); },
       chooseOutside: () => { this.setState({ mode: 'outside' }); window.scrollTo(0, 0); },
       back: () => this.setState({ mode: null, sent: false }),
-      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); window.scrollTo(0, 0); },
+      onSubmit: (e) => {
+        e.preventDefault();
+        if (!e.target.checkValidity()) { e.target.reportValidity(); return; }
+        this.setState({ sent: true }); window.scrollTo(0, 0);
+      },
     };
   }
 }
